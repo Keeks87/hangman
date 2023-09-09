@@ -1,0 +1,21 @@
+/*
+Filename: App.css
+
+Code: CSS code for the App component
+*/
+
+/* App Styles */
+.App {
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../Images/Background.jpg");
+  /* Fit image to screen */
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* Background color if image is unavailable */
+  background-color: #cccccc;
+}

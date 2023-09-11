@@ -55,7 +55,6 @@ Code: CSS for Hangman.js
 	font-family: inherit;
 	font-size: 1rem;
 	cursor: pointer;
-	width: 30px;
 	margin: 5px 2px 2px 2px;
 	letter-spacing: 1px;
 	outline: none;
@@ -91,4 +90,12 @@ p {
 	font-size: 1.2rem;
 	color: #d69615;
 	font-weight: 400;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	color: #ffffff;
 }

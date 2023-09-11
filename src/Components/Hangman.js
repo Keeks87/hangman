@@ -8,6 +8,7 @@ the image of the hangman based on the number of wrong guesses.
 // Importing React and randomWord, useState CSS and Images
 import React, { useState } from "react";
 import { randomWord } from "./RandomWord";
+import GameHelp from "./GameHelp"; 
 import "../CSS/Hangman.css";
 import image0 from "../Images/0.jpg";
 import image1 from "../Images/1.jpg";
@@ -27,6 +28,7 @@ const Hangman = ({ maxWrong = 10, images }) => {
 	const [noOfWrong, setNoOfWrong] = useState(0);
 	const [guessed, setGuessed] = useState(new Set());
 	const [answer, setAnswer] = useState(randomWord());
+	const [showHelp, setShowHelp] = useState(false);
   
 	// Define a function to reset the game
 	const reset = () => {
@@ -63,6 +65,12 @@ const Hangman = ({ maxWrong = 10, images }) => {
 			</button>
 	  	));
 	};
+
+	// Define a function to toggle the help
+	const toggleHelp = () => {
+		setShowHelp(!showHelp);
+	  	};
+	
 	// Define the game state
 	const gameOver = noOfWrong >= maxWrong;
 	const isWinner = guessedWord().join("") === answer;
@@ -82,6 +90,8 @@ const Hangman = ({ maxWrong = 10, images }) => {
 					<img src={images[noOfWrong]} alt="HangMan" />
 				</div>
 			<div className="Hangman-info">
+            <button onClick={toggleHelp}>Show Help</button>
+                {showHelp && <GameHelp />}
 				<p>Guesses Left: {maxWrong - noOfWrong}</p>
 				<p className="Hangman-word">
 		  			{!gameOver ? guessedWord() : answer}
@@ -94,6 +104,7 @@ const Hangman = ({ maxWrong = 10, images }) => {
 				)}
 			</div>
 			</div>
+
 	  	</div>
 	);
 };
